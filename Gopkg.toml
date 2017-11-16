@@ -36,18 +36,6 @@ required = [
   version = "0.11.0"
 
 [[constraint]]
-  name = "github.com/Azure/azure-sdk-for-go"
-  version = "~10.2.1-beta"
-
-[[constraint]]
-  name = "github.com/Azure/go-autorest"
-  version = "~8.1.x"
-
-[[constraint]]
-  name = "github.com/aws/aws-sdk-go"
-  version = "1.10.26"
-
-[[constraint]]
   branch = "master"
   name = "github.com/golang/glog"
 
@@ -98,10 +86,6 @@ required = [
 [[constraint]]
   name = "k8s.io/kubernetes"
   version = "~1.8"
-
-[[override]]
-  name = "github.com/russross/blackfriday"
-  revision = "93622da34e54fb6529bfb7c57e710f37a8d9cbd8"
 
 [[constraint]]
   branch = "release-1.8"

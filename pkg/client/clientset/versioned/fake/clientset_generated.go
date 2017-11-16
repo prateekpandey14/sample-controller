@@ -16,9 +16,9 @@ limitations under the License.
 package fake
 
 import (
-	clientset "github.com/prateekpandey14/sample-controller/pkg/generated/clientset/versioned"
-	mayav1alpha1 "github.com/prateekpandey14/sample-controller/pkg/generated/clientset/versioned/typed/maya/v1alpha1"
-	fakemayav1alpha1 "github.com/prateekpandey14/sample-controller/pkg/generated/clientset/versioned/typed/maya/v1alpha1/fake"
+	clientset "github.com/prateekpandey14/sample-controller/pkg/client/clientset/versioned"
+	openebsv1alpha1 "github.com/prateekpandey14/sample-controller/pkg/client/clientset/versioned/typed/openebs/v1alpha1"
+	fakeopenebsv1alpha1 "github.com/prateekpandey14/sample-controller/pkg/client/clientset/versioned/typed/openebs/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
@@ -59,12 +59,12 @@ func (c *Clientset) Discovery() discovery.DiscoveryInterface {
 
 var _ clientset.Interface = &Clientset{}
 
-// MayaV1alpha1 retrieves the MayaV1alpha1Client
-func (c *Clientset) MayaV1alpha1() mayav1alpha1.MayaV1alpha1Interface {
-	return &fakemayav1alpha1.FakeMayaV1alpha1{Fake: &c.Fake}
+// OpenebsV1alpha1 retrieves the OpenebsV1alpha1Client
+func (c *Clientset) OpenebsV1alpha1() openebsv1alpha1.OpenebsV1alpha1Interface {
+	return &fakeopenebsv1alpha1.FakeOpenebsV1alpha1{Fake: &c.Fake}
 }
 
-// Maya retrieves the MayaV1alpha1Client
-func (c *Clientset) Maya() mayav1alpha1.MayaV1alpha1Interface {
-	return &fakemayav1alpha1.FakeMayaV1alpha1{Fake: &c.Fake}
+// Openebs retrieves the OpenebsV1alpha1Client
+func (c *Clientset) Openebs() openebsv1alpha1.OpenebsV1alpha1Interface {
+	return &fakeopenebsv1alpha1.FakeOpenebsV1alpha1{Fake: &c.Fake}
 }

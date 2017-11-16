@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2017 the OpenEBS Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,9 +13,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
-// +k8s:deepcopy-gen=package,register
-
-// Package v1alpha1 is the v1alpha1 version of the API.
-// +groupName=maya.io
 package v1alpha1
+
+type DatabaseExpansion interface{}

@@ -16,5 +16,5 @@ limitations under the License.
 package fake
 
 import (
-	v1alpha1 "github.com/prateekpandey14/sample-controller/pkg/generated/clientset/versioned/typed/maya/v1alpha1"
+	v1alpha1 "github.com/prateekpandey14/sample-controller/pkg/client/clientset/versioned/typed/maya/v1alpha1"
 )

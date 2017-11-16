@@ -17,7 +17,7 @@ package versioned
 
 import (
 	glog "github.com/golang/glog"
-	mayav1alpha1 "github.com/prateekpandey14/sample-controller/pkg/generated/clientset/versioned/typed/maya/v1alpha1"
+	openebsv1alpha1 "github.com/prateekpandey14/sample-controller/pkg/client/clientset/versioned/typed/openebs/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
@@ -25,27 +25,27 @@ import (
 
 type Interface interface {
 	Discovery() discovery.DiscoveryInterface
-	MayaV1alpha1() mayav1alpha1.MayaV1alpha1Interface
+	OpenebsV1alpha1() openebsv1alpha1.OpenebsV1alpha1Interface
 	// Deprecated: please explicitly pick a version if possible.
-	Maya() mayav1alpha1.MayaV1alpha1Interface
+	Openebs() openebsv1alpha1.OpenebsV1alpha1Interface
 }
 
 // Clientset contains the clients for groups. Each group has exactly one
 // version included in a Clientset.
 type Clientset struct {
 	*discovery.DiscoveryClient
-	mayaV1alpha1 *mayav1alpha1.MayaV1alpha1Client
+	openebsV1alpha1 *openebsv1alpha1.OpenebsV1alpha1Client
 }
 
-// MayaV1alpha1 retrieves the MayaV1alpha1Client
-func (c *Clientset) MayaV1alpha1() mayav1alpha1.MayaV1alpha1Interface {
-	return c.mayaV1alpha1
+// OpenebsV1alpha1 retrieves the OpenebsV1alpha1Client
+func (c *Clientset) OpenebsV1alpha1() openebsv1alpha1.OpenebsV1alpha1Interface {
+	return c.openebsV1alpha1
 }
 
-// Deprecated: Maya retrieves the default version of MayaClient.
+// Deprecated: Openebs retrieves the default version of OpenebsClient.
 // Please explicitly pick a version.
-func (c *Clientset) Maya() mayav1alpha1.MayaV1alpha1Interface {
-	return c.mayaV1alpha1
+func (c *Clientset) Openebs() openebsv1alpha1.OpenebsV1alpha1Interface {
+	return c.openebsV1alpha1
 }
 
 // Discovery retrieves the DiscoveryClient
@@ -64,7 +64,7 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	}
 	var cs Clientset
 	var err error
-	cs.mayaV1alpha1, err = mayav1alpha1.NewForConfig(&configShallowCopy)
+	cs.openebsV1alpha1, err = openebsv1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 // panics if there is an error in the config.
 func NewForConfigOrDie(c *rest.Config) *Clientset {
 	var cs Clientset
-	cs.mayaV1alpha1 = mayav1alpha1.NewForConfigOrDie(c)
+	cs.openebsV1alpha1 = openebsv1alpha1.NewForConfigOrDie(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClientForConfigOrDie(c)
 	return &cs
@@ -90,7 +90,7 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 // New creates a new Clientset for the given RESTClient.
 func New(c rest.Interface) *Clientset {
 	var cs Clientset
-	cs.mayaV1alpha1 = mayav1alpha1.New(c)
+	cs.openebsV1alpha1 = openebsv1alpha1.New(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClient(c)
 	return &cs

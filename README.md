@@ -24,5 +24,5 @@ Changes should not be made to these files manually, and when creating your own
 controller based off of this implementation you should not copy these files and
 instead run the `hack/update-generated-crd-code.sh` script to generate your own.
 
-### Dep Management :
+### Dependency Management :
 Dep used as dependency management tool.

@@ -25,3 +25,6 @@ controller based off of this implementation you should not copy these files and
 instead run the `hack/update-generated-crd-code.sh` script to generate your own.
 
 Further information can be get from github.com/kubernetes/sample-controller .
+
+### Dependency Management :
+[Dep](github.com/golang/dep) used as dependency management tool.

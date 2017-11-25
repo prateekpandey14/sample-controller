@@ -23,3 +23,5 @@ directories:
 Changes should not be made to these files manually, and when creating your own
 controller based off of this implementation you should not copy these files and
 instead run the `hack/update-generated-crd-code.sh` script to generate your own.
+
+Further information can be get from github.com/kubernetes/sample-controller .
